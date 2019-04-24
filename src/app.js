@@ -4,6 +4,7 @@ const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
 
+var port = process.env.PORT || 3000
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0
 const publicDirectoryPath = path.join(__dirname,'../public/');
 const viewsPath = path.join(__dirname,'../templates/views');
@@ -90,6 +91,6 @@ app.get('/*',(req,res) => {
 })
 
 //Finally start and listen the server on 3000 port
-app.listen(3000,() => {
-    console.log('Server up and running..')
+app.listen(port,() => {
+    console.log('Server up and running on '+ port)
 })
