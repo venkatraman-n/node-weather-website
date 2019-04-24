@@ -10,8 +10,10 @@ forecast = (latitude,longitude,callback) => {
                 callback(body.error);
         } else {
             const currently = body.currently  
+            console.dir(body,{depth:5})
             callback(undefined,body.daily.data[0].summary+ 'It is currently ' + currently.temperature + ' degrees out. There is ' 
-            + currently.precipProbability + '% probability of rain'); 
+            + currently.precipProbability + '% probability of rain. Minimum temperature : ' + body.daily.data[0].temperatureMin 
+            + ', Maximum temperature : ' + body.daily.data[0].temperatureMax); 
         }
         
     })
